@@ -11,6 +11,7 @@ class GuaImage {
         this.texture = game.textureByName(name)
         this.w = this.texture.width
         this.h = this.texture.height
+        this.imgRotate = 0
     }
 
     static new(game, name) {
@@ -113,6 +114,8 @@ class Enemy extends GuaImage {
         // this.bullets = []
         this.x = randomBetween(0, 350)
         this.y = 0
+        this.imgRotate = Math.PI
+        console.log("1",this.imgRotate)
     }
     fire() {
         var b = Bullet.new(this.game, 2)

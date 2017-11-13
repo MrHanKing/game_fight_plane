@@ -26,6 +26,7 @@ class GuaGame {
         return this.i
     }
     drawImage(img) {
+        this.context.rotate(img.imgRotate)
         this.context.drawImage(img.texture, img.x, img.y)
     }
     // update
