@@ -96,7 +96,7 @@ class Player extends GuaImage {
         if (this.cd > 0) {
             this.cd--;
         } else {
-            this.fire()
+            // this.fire()
         }
     }
 }
@@ -133,7 +133,7 @@ class Enemy extends GuaImage {
         if (this.cd > 0) {
             this.cd--;
         } else {
-            this.fire()
+            // this.fire()
         }
     }
 }

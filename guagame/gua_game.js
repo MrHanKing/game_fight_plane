@@ -26,8 +26,12 @@ class GuaGame {
         return this.i
     }
     drawImage(img) {
+        console.log("hahaha:", img.imgRotate, img.x, img.y)
+        this.context.save()
+        this.context.translate(400, 600)
         this.context.rotate(img.imgRotate)
         this.context.drawImage(img.texture, img.x, img.y)
+        this.context.restore()
     }
     // update
     update() {
@@ -66,7 +70,7 @@ class GuaGame {
     }
     textureByName(name) {
         var g = this
-        log('image by name', g.images)
+        // log('image by name', g.images, name)
         var img = g.images[name]
         // var image = {
         //     w: img.width,

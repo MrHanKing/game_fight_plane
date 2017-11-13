@@ -1,7 +1,7 @@
 class Scene extends GuaScene {
     constructor(game) {
         super(game)
-        this.enemyNum = 5
+        this.enemyNum = 1
         this.setUp()
         this.setInputControl()
     }
@@ -13,8 +13,8 @@ class Scene extends GuaScene {
         this.cloud = GuaImage.new(this.game, "cloud")
 
         this.addElement(this.bg)
-        this.addElement(this.cloud)
-        this.addElement(this.player)
+        // this.addElement(this.cloud)
+        // this.addElement(this.player)
         this.addEnemys(this.enemyNum)
     }
     addEnemys(num) {
