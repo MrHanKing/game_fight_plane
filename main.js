@@ -35,15 +35,15 @@ var enableDebugMode = function(game, enable) {
 
 var __main = function() {
     var images = {
-        player: 'img/player.png',
-        bg: 'img/bg.png',
+        player: 'img/player/player.png',
+        bg: 'img/scene/bg0.jpg',
         cloud: 'img/yun.png',
         bullet: 'img/dan.png',
-        enemy0: 'img/enemey.png',
-        enemy1: 'img/enemey.png',
-        enemy2: 'img/enemey.png',
-        enemy3: 'img/enemey.png',
-        enemy4: 'img/enemey.png',
+        enemy0: 'img/enemy/enemy1.png',
+        enemy1: 'img/enemy/enemy2.png',
+        enemy2: 'img/enemy/enemy3.png',
+        enemy3: 'img/enemy/enemy4.png',
+        enemy4: 'img/enemy/enemy5.png',
     }
     var game = GuaGame.instance(30, images, function(g){
         var s = Scene.new(g)

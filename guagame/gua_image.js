@@ -88,8 +88,7 @@ class Player extends GuaImage {
         var b = Bullet.new(this.game, 1)
         b.x = this.x + this.w / 2
         b.y = this.y
-        this.game.scene.addElement(b)
-        this.game.scene.playerBullets.push(b)
+        this.game.scene.addPlayerBullets(b)
         this.cd = 9
     }
     update() {
@@ -119,7 +118,7 @@ class Enemy extends GuaImage {
         var b = Bullet.new(this.game, 2)
         b.x = this.x + this.w / 2
         b.y = this.y + this.h
-        this.game.scene.addElement(b)
+        this.game.scene.addEnemyBullets(b)
         this.cd = randomBetween(20, 40)  
     }
     update() {
