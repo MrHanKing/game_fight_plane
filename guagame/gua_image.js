@@ -96,7 +96,7 @@ class Player extends GuaImage {
         if (this.cd > 0) {
             this.cd--;
         } else {
-            // this.fire()
+            this.fire()
         }
     }
 }
@@ -126,8 +126,10 @@ class Enemy extends GuaImage {
     }
     update() {
         if (this.collideWithBullet()) {
+            console.log("处理销毁")
             this.destroy()
         }
+        
         this.y += this.speedY
         if (this.y > 600) {
             this.setUp()
@@ -145,12 +147,15 @@ class Enemy extends GuaImage {
         this.setUp()
     }
     collideWithBullet() {
-        this.game.scene.playerBullets.forEach(function(element, index) {
+        var array = this.game.scene.playerBullets
+        for (var index = 0; index < array.length; index++) {
+            var element = array[index];
             if (rectIntersects(element, this)) {
+                //碰撞清除子弹
                 this.game.scene.playerBullets.splice(index, 1)
                 return true
             }
-        }, this);
+        }
         return false
     }
 }

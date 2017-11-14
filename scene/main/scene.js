@@ -14,7 +14,7 @@ class Scene extends GuaScene {
 
         this.addElement(this.bg)
         // this.addElement(this.cloud)
-        // this.addElement(this.player)
+        this.addElement(this.player)
         this.addEnemys(this.enemyNum)
     }
     addEnemys(num) {
