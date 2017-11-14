@@ -125,6 +125,9 @@ class Enemy extends GuaImage {
         this.cd = randomBetween(20, 40)  
     }
     update() {
+        if (this.collideWithBullet()) {
+            this.destroy()
+        }
         this.y += this.speedY
         if (this.y > 600) {
             this.setUp()
@@ -135,5 +138,19 @@ class Enemy extends GuaImage {
         } else {
             this.fire()
         }
+    }
+    destroy() {
+        // 播放爆炸特效
+        // 重置飞机
+        this.setUp()
+    }
+    collideWithBullet() {
+        this.game.scene.playerBullets.forEach(function(element, index) {
+            if (rectIntersects(element, this)) {
+                this.game.scene.playerBullets.splice(index, 1)
+                return true
+            }
+        }, this);
+        return false
     }
 }
