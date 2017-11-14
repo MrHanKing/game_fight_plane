@@ -115,7 +115,7 @@ class Enemy extends GuaImage {
         this.x = randomBetween(0, 350)
         this.y = 0
         this.imgRotate = Math.PI
-        console.log("1",this.imgRotate)
+        // console.log("1",this.imgRotate)
     }
     fire() {
         var b = Bullet.new(this.game, 2)
@@ -133,7 +133,7 @@ class Enemy extends GuaImage {
         if (this.cd > 0) {
             this.cd--;
         } else {
-            // this.fire()
+            this.fire()
         }
     }
 }

@@ -26,12 +26,7 @@ class GuaGame {
         return this.i
     }
     drawImage(img) {
-        console.log("hahaha:", img.imgRotate, img.x, img.y)
-        this.context.save()
-        this.context.translate(400, 600)
-        this.context.rotate(img.imgRotate)
         this.context.drawImage(img.texture, img.x, img.y)
-        this.context.restore()
     }
     // update
     update() {
