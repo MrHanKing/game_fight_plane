@@ -9,6 +9,7 @@
 //     }
 //     return blocks
 // }
+// "use strict";
 
 var enableDebugMode = function(game, enable) {
     if(!enable) {
