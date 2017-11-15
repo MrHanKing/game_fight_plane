@@ -1,4 +1,4 @@
-class ParticleImage extends GuaImage {
+class GuaParticleImage extends GuaImage {
     constructor(game) {
         super(game, "fire")
         this.setUp()
@@ -20,7 +20,7 @@ class ParticleImage extends GuaImage {
     }
 }
 
-class Particle {
+class GuaParticle {
     constructor(game) {
         this.game = game
         this.particleNum = 100
@@ -39,7 +39,7 @@ class Particle {
     update() {
         // 画小火花粒子
         for (var index = this.particles.length; index < this.particleNum; index++) {
-            var p = ParticleImage.new(this.game)
+            var p = GuaParticleImage.new(this.game)
             var vx = randomBetween(-10, 10)
             var vy = randomBetween(-10, 10)
             p.init(this.x, this.y, vx, vy)
