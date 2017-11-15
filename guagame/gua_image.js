@@ -26,6 +26,38 @@ class GuaImage {
     }
 }
 
+class ParticleImage extends GuaImage {
+    constructor(game, name) {
+        super(game, name)
+        this.setUp()
+    }
+    setUp() {
+        this.x = 200
+        this.y = 200
+        this.speedX = randomBetween(-3, 3)
+        this.speedY = randomBetween(-3, 3)
+    }
+    update() {
+        super.update()
+        this.x += this.speedX
+        this.y += this.speedY
+    }
+}
+
+class Particle {
+    constructor(game) {
+        this.game = game
+        this.particleNum = 100
+        this.setUp()
+    }
+    // setUp() {
+    //     for (var index = 0; index < this.particleNum; index++) {
+    //         var element = array[index];
+            
+    //     }
+    // }
+}
+
 class Bullet extends GuaImage {
     //plOrEs 用于分辨敌方或玩家的子弹,玩家为1，敌人为2
     constructor(game, plOrEs = 1) {
