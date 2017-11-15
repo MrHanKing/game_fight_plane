@@ -8,13 +8,19 @@ var imageFromPath = function(path) {
     return img
 }
 
+// 矩形与矩形碰撞
 var rectIntersects = function(a, b) {
-    var o = a
-    if (b.y > o.y && b.y < o.y + o.h) {
-        if (b.x > o.x && b.x < o.x + o.w) {
-            console.log("发生碰撞了")
-            return true
-        }
+    if ((a.x > b.x + b.w) || (a.x + a.w < b.x) ) {
+        return false
     }
-    return false
+    if ((a.y > b.y + b.h) || (a.y + a.h < b.y) ) {
+        return false
+    }
+    return true    
+}
+
+// 随机数
+var randomBetween = function(start, end) {
+    var value = Math.random() * (end - start + 1)
+    return Math.floor(value) + start
 }
