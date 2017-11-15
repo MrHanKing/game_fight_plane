@@ -1,8 +1,3 @@
-var randomBetween = function(start, end) {
-    var value = Math.random() * (end - start + 1)
-    return Math.floor(value) + start
-}
-
 class GuaImage {
     constructor(game, name) {
         this.game = game
@@ -93,11 +88,32 @@ class Player extends GuaImage {
         this.cd = 9
     }
     update() {
+        if (this.collideWithBullet()) {
+            log("你中弹了")
+            this.destroy()
+        }
         if (this.cd > 0) {
             this.cd--;
         } else {
             this.fire()
         }
+    }
+    destroy() {
+        // 播放爆炸特效
+        // 返回菜单
+        log("游戏结束，返回菜单")
+    }
+    collideWithBullet() {
+        var array = this.game.scene.enemyBullets
+        for (var index = 0; index < array.length; index++) {
+            var element = array[index];
+            if (rectIntersects(element, this)) {
+                //碰撞清除子弹
+                this.game.scene.playerBullets.splice(index, 1)
+                return true
+            }
+        }
+        return false
     }
 }
 
