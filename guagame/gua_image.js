@@ -1,6 +1,7 @@
 class GuaImage {
     constructor(game, name) {
         this.game = game
+        this.name = name
         this.x = 0
         this.y = 0
         this.texture = game.textureByName(name)
@@ -26,64 +27,16 @@ class GuaImage {
     }
 }
 
-class ParticleImage extends GuaImage {
-    constructor(game) {
-        super(game, "fire")
-        this.setUp()
-    }
-    setUp() {
-    }
-    init(x, y, vx, vy) {
-        this.x = x
-        this.y = y
-        this.speedX = vx
-        this.speedY = vy
-    }
-    update() {
-        super.update()
-        this.x += this.speedX
-        this.y += this.speedY
-        this.speedX += this.speedX * 0.1
-        this.speedY += this.speedY * 0.1
-    }
-}
-
-class Particle {
-    constructor(game) {
-        this.game = game
-        this.particleNum = 100
-        this.particles = []
-        this.setUp()
-    }
-    setUp() {
-        this.x = 200
-        this.y = 200
-    }
-    draw() {
-        for (var index = 0; index < this.particles.length; index++) {
-            this.particles[index].draw()
-        }
-    }
-    update() {
-        // 画小火花粒子
-        for (var index = this.particles.length; index < this.particleNum; index++) {
-            var p = ParticleImage.new(this.game)
-            var vx = randomBetween(-10, 10)
-            var vy = randomBetween(-10, 10)
-            p.init(this.x, this.y, vx, vy)
-            this.particles.push(p)
-        }
-        // 更新小火花粒子位置
-        for (var index = 0; index < this.particles.length; index++) {
-            this.particles[index].update()
-        }
-    }
-}
-
 class Bullet extends GuaImage {
     //plOrEs 用于分辨敌方或玩家的子弹,玩家为1，敌人为2
     constructor(game, plOrEs = 1) {
-        super(game, "bullet")
+        var name = ""
+        if (plOrEs == 1) {
+            name = "bullet"
+        } else {
+            name = "enemyBullet"
+        }
+        super(game, name)
         this.plOrEs = plOrEs
         this.setUp()
     }
@@ -154,6 +107,8 @@ class Player extends GuaImage {
     }
     destroy() {
         // 播放爆炸特效
+        // 删除自己
+        this.game.scene.delElement(this)
         // 返回菜单
         log("游戏结束，返回菜单")
     }
@@ -163,7 +118,7 @@ class Player extends GuaImage {
             var element = array[index];
             if (rectIntersects(element, this)) {
                 //碰撞清除子弹
-                this.game.scene.playerBullets.splice(index, 1)
+                this.game.scene.enemyBullets.splice(index, 1)
                 return true
             }
         }

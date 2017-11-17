@@ -1,7 +1,7 @@
 class Scene extends GuaScene {
     constructor(game) {
         super(game)
-        this.enemyNum = 1
+        this.enemyNum = randomBetween(3, 6)
         this.setUp()
         this.setInputControl()
     }

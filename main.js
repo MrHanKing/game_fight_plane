@@ -40,6 +40,7 @@ var __main = function() {
         bg: 'img/scene/bg0.jpg',
         cloud: 'img/yun.png',
         bullet: 'img/dan.png',
+        enemyBullet: 'img/dan_enemy.png',
         enemy0: 'img/enemy/enemy1.png',
         enemy1: 'img/enemy/enemy2.png',
         enemy2: 'img/enemy/enemy3.png',

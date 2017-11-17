@@ -18,6 +18,14 @@ class GuaScene {
     addEnemyBullets(GuaImage) {
         this.enemyBullets.push(GuaImage)
     }
+    delElement(GuaImage) {
+        var array = this.elements
+        for (var index = 0; index < array.length; index++) {
+            if (GuaImage.name == array[index].name) {
+                array.splice(index, 1)
+            }
+        }
+    }
     clearUnusedBullets(){
         this.playerBullets = this.playerBullets.filter(function(element) {
             return element.y <= 600 && element.y >= 0
