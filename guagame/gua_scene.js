@@ -9,6 +9,10 @@ class GuaScene {
         var i = new this(game)
         return i
     }
+    static instance(game) {
+        this.i = this.i || new this(game)
+        return this.i
+    }
     addElement(GuaImage) {
         this.elements.push(GuaImage)
     }
